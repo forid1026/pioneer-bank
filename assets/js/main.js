@@ -35,37 +35,29 @@ depositBtn.addEventListener('click', function () {
 });
 
 
- //withdraw event handler
+//withdraw event handler
 
- const withdrawBtn = document.getElementById('addWithdraw');
- withdrawBtn.addEventListener('click', function(){
-     const withdrawNumber = getInput('withdrawAmount');
+const withdrawBtn = document.getElementById('addWithdraw');
+withdrawBtn.addEventListener('click', function () {
+    const withdrawNumber = getInput('withdrawAmount');
 
-     spanTextUpdate('currentWithdraw', withdrawNumber);
-     spanTextUpdate('currentBalance', -1 * 
-     withdrawNumber);
-    
+    spanTextUpdate('currentWithdraw', withdrawNumber);
+    spanTextUpdate('currentBalance', -1 *
+        withdrawNumber);
 
+    document.getElementById('withdrawAmount').value = "";
 
-
-
-
+})
 
 
-
-     document.getElementById('withdrawAmount').value = "";
-
- })
-
-
- function spanTextUpdate(id, depositNumber) {
+function spanTextUpdate(id, depositNumber) {
     const current = document.getElementById(id).innerText;
     const currentNumber = parseFloat(current);
     const totalAmount = depositNumber + currentNumber;
     document.getElementById(id).innerText = totalAmount;
 }
 
-function getInput(id){
+function getInput(id) {
     const amount = document.getElementById(id).value;
     const amountNumber = parseFloat(amount);
     return amountNumber;
