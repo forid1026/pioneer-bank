@@ -50,10 +50,10 @@ withdrawBtn.addEventListener('click', function () {
 })
 
 
-function spanTextUpdate(id, depositNumber) {
+function spanTextUpdate(id, addedNumber) {
     const current = document.getElementById(id).innerText;
     const currentNumber = parseFloat(current);
-    const totalAmount = depositNumber + currentNumber;
+    const totalAmount = addedNumber + currentNumber;
     document.getElementById(id).innerText = totalAmount;
 }
 
