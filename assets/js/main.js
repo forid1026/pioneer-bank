@@ -14,11 +14,15 @@ const depositBtn = document.getElementById('addDeposit');
 depositBtn.addEventListener('click', function () {
     const depositAmountNumber = getInput('depositAmount');
 
-
-    spanTextUpdate('currentDeposit', depositAmountNumber);
-
-    spanTextUpdate('currentBalance', depositAmountNumber)
-
+    if (depositAmountNumber < 0) {
+        alert('Deposit number cannot be negative.');
+        document.getElementById('depositAmount').value  = '';
+    }
+    else {
+        spanTextUpdate('currentDeposit', depositAmountNumber);
+        spanTextUpdate('currentBalance', depositAmountNumber);
+        document.getElementById('depositAmount').value = "";
+    }
     // const currentDeposit = document.getElementById('currentDeposit').innerText;
     // const currentDepositNumber = parseFloat(currentDeposit);
     // const totalDeposit = depositAmountNumber + currentDepositNumber;
@@ -30,7 +34,7 @@ depositBtn.addEventListener('click', function () {
     // const totalBalance =  depositAmountNumber + currentBalanceNumber;
     // document.getElementById('currentBalance').innerText = totalBalance;
 
-    document.getElementById('depositAmount').value = "";
+
 
 });
 
